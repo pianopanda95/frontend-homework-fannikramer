@@ -2,6 +2,7 @@
     font-family: Helvetica, Arial, Helvetica, sans-serif;
     font-size: 2rem;
     background-color: rgb(243,243,243);
+    color: rgb(63, 63, 63);
     --main-bordercolor: rgb(167,179,175); 
 }
 
@@ -31,31 +32,47 @@ div.header > img#logo {
 form {
     border: 2px solid var(--main-bordercolor);
     border-radius: 15px;
+    max-width: max(450px, 45vw);
 }
 
 fieldset {
     display: flex;
     flex-direction: column;
+    row-gap: .4rem;
     align-items: center;
-    padding: .8rem 1rem;
+    padding: 1rem 1rem;
 }
 
-.select-wrapper::after {
-    content: url(../assets/dropdown.svg);
-    font-size: 1rem;
-    position: absolute;
-    margin-left: -0.6em;    
+.select-wrapper {
+    width: 100%;
+    position: relative;
 }
 
 select {
     position: relative;
-    height: 1rem;
-    width: 200px;
+    width: 100%;
+    font-size: 1.3rem;
     border-bottom: 3px solid rgb(192,233,223);
 }
 
-p > input[type='number'] {
-    /* height */
+select + img {
+    position: absolute;
+    width: .6em;
+    right: .3em;
+    top: .5em;
+}
+
+p {
+    margin: 0;
+    text-align: center;
+    font-size: smaller;
+}
+
+p > input[type="number"] {
+    font-size: 1rem;
+    padding: .4em .2em;
+    width: 20%;    
+    margin: .2em;
 }
 
 button {

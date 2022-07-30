@@ -5,10 +5,11 @@
     --main-bordercolor: rgb(167,179,175); 
 }
 
-fieldset, form, input, button {
+fieldset, form, input, button, select {
     border: none;
     padding: 0;
     margin: 0;
+    appearance: none;
 }
 
 div.header {
@@ -36,12 +37,34 @@ fieldset {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: .5rem 1rem;
+    padding: .8rem 1rem;
 }
 
+.select-wrapper::after {
+    content: url(../assets/dropdown.svg);
+    font-size: 1rem;
+    position: absolute;
+    margin-left: -0.6em;    
+}
+
+select {
+    position: relative;
+    height: 1rem;
+    width: 200px;
+    border-bottom: 3px solid rgb(192,233,223);
+}
+
+p > input[type='number'] {
+    /* height */
+}
 
 button {
+    color: rgb(63, 63, 63);
     background-color: rgb(183,239,228);
-    border: 1px solid rgb(187,255,239);
+    border: 2px solid rgb(187,255,239);
+    border-radius: 20px;
+    padding: .6rem 1rem;
+    box-shadow: 0 8px 8px rgb(182,182,182);
+    font-size: .8rem;
 }
 

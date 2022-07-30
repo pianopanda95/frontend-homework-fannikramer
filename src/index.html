@@ -12,18 +12,38 @@
     <main>
 
         <form>
+            
             <div class="header">
-                <img src="../assets/logo.svg" alt="logog - displaying a tilted S character">
-                    
-                <img src="../assets/logo-text.svg" alt="Size calculator">
-            </div>
-            <fieldset>
-                <select name="brand" id="brand"></select>
 
-                <select name="category" id="category"></select>
+                <img
+                    id="logo" 
+                    src="../assets/logo.svg"
+                    alt="logo - displaying a tilted S character">
+                    
+                <img src="../assets/logo-text.svg"
+                     alt="Size calculator">
+            </div>
+
+            <fieldset>
+
+                <div class="select-wrapper">
+                    <select name="brand" id="brand">
+
+                    </select>
+                </div>
+
+                <div class="select-wrapper">
+                    <select name="category" id="category">
+
+                    </select>
+                </div>
 
                 <p>My size is <input type="number"> inches</p>
+                
+                <button>CALCULATE</button>
+                
             </fieldset>
+        
         </form>
 
     </main>

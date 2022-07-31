@@ -1,16 +1,17 @@
 :root {
-    font-family: Helvetica, Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     background-color: rgb(243,243,243);
     color: rgb(63, 63, 63);
     --main-bordercolor: rgb(167,179,175); 
 }
 
-fieldset, form, input, button, select {
+fieldset, form, input, button {
     border: none;
     padding: 0;
     margin: 0;
     appearance: none;
+    outline: none;
 }
 
 div.header {
@@ -48,18 +49,25 @@ fieldset {
     position: relative;
 }
 
-select {
+.select-wrapper > input {
     position: relative;
     width: 100%;
-    font-size: 1.3rem;
+    font-size: .8rem;
+    font-family: Arial Light;
+    padding: .3rem;
+    color: rgb(204,204,204);
     border-bottom: 3px solid rgb(192,233,223);
 }
 
-select + img {
+input:focus {
+    background-color: mintcream;
+}
+
+input + img {
     position: absolute;
     width: .6em;
-    right: .3em;
-    top: .5em;
+    right: -.05em;
+    top: .55em;
 }
 
 p {
@@ -73,6 +81,11 @@ p > input[type="number"] {
     padding: .4em .2em;
     width: 20%;    
     margin: .2em;
+    text-align: center;
+}
+
+p > input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
 }
 
 button {
@@ -83,5 +96,6 @@ button {
     padding: .6rem 1rem;
     box-shadow: 0 8px 8px rgb(182,182,182);
     font-size: .8rem;
+    cursor: pointer;
 }
 

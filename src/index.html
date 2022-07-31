@@ -11,7 +11,7 @@
 <body>
     <main>
 
-        <form>
+        <form autocomplete="off">
             
             <div class="header">
 
@@ -27,16 +27,26 @@
             <fieldset>
 
                 <div class="select-wrapper">
-                    <select name="brand" id="brand">
+                    <input
+                        list="brands"
+                        name="brand"
+                        id="brand"
+                        placeholder="Select a brand">
 
-                    </select>
                     <img src="../assets/dropdown.svg">
-                </div>
+
+                    <datalist id="brands">
+
+                    </datalist>                </div>
 
                 <div class="select-wrapper">
-                    <select name="category" id="category">
+                    <input
+                        list="categories"
+                        name="category"
+                        id="category"
+                        placeholder="Select a category">
                         
-                    </select>
+                    </input>
                     <img src="../assets/dropdown.svg">
                 </div>
 

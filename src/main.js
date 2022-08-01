@@ -5,13 +5,15 @@ const brandInput = document.querySelector('#brand');
 const dataListBrands = document.querySelector(`datalist#brands`);
 
 const categoryInput = document.querySelector('#category');
+const dataListCategories = document.querySelector(`datalist#categories`);
 
 
 const fetchData = element => {
 
-    const displaySearchResults = name => {
+    const displaySearchResults = brand => {
         const suggestion = document.createElement('option');
-        suggestion.textContent = name;
+        suggestion.textContent = brand[0];
+        suggestion.setAttribute('data-brand-id', brand[1]);
         dataListBrands.appendChild(suggestion);
     }
 
@@ -27,16 +29,15 @@ const fetchData = element => {
         })
         .then(response => response.json())
         .then(data => {
-            const currentList = data.brands.map(brand => brand.name);
+            const currentList = data.brands.map(brand => [brand.name, brand.id]);
             console.log(currentList)
-            dataListBrands.childNodes.forEach(node => node.remove());
-            currentList.map(brandName => displaySearchResults(brandName));
+            dataListBrands.innerHTML = '';
+            currentList.map(brand => displaySearchResults(brand));
         })
         .catch(error => console.log(error)); 
     })
 };
 
 fetchData(brandInput);
-fetchData(categoryInput);
 
 

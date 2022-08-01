@@ -51,12 +51,21 @@ fieldset {
 
 .select-wrapper > *:first-child {
     position: relative;
+    box-sizing: border-box;
     width: 100%;
     font-size: .8rem;
     font-family: Arial Light;
     padding: .3rem;
-    color: rgb(204,204,204);
     border-bottom: 3px solid rgb(192,233,223);
+}
+
+input::placeholder {
+    color: rgb(204,204,204);
+    opacity: 1;
+}
+input:-ms-input-placeholder {
+    color: rgb(204,204,204);
+    opacity: 1;
 }
 
 input:focus, select:focus {
@@ -66,7 +75,7 @@ input:focus, select:focus {
 input + img, select + img {
     position: absolute;
     width: .6em;
-    right: -.05em;
+    right: .4em;
     top: .55em;
 }
 

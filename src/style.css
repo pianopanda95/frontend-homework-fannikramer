@@ -6,7 +6,7 @@
     --main-bordercolor: rgb(167,179,175); 
 }
 
-fieldset, form, input, button {
+fieldset, form, input, button, select {
     border: none;
     padding: 0;
     margin: 0;
@@ -49,7 +49,7 @@ fieldset {
     position: relative;
 }
 
-.select-wrapper > input {
+.select-wrapper > *:first-child {
     position: relative;
     width: 100%;
     font-size: .8rem;
@@ -59,11 +59,11 @@ fieldset {
     border-bottom: 3px solid rgb(192,233,223);
 }
 
-input:focus {
+input:focus, select:focus {
     background-color: mintcream;
 }
 
-input + img {
+input + img, select + img {
     position: absolute;
     width: .6em;
     right: -.05em;

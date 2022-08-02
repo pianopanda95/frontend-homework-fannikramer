@@ -40,20 +40,25 @@
                 </div>
 
                 <div class="select-wrapper">
-                    <select id="category">
+                    <input
+                        list="categories"
+                        id="category"
+                        placeholder="Select a category">
+
                         
-                        <option
+                    <img src="../assets/dropdown.svg">
+
+                    <datalist id="categories">
+
+                        <!-- <option
                             value="none"
                             selected
                             disabled
                             hidden>
                             Select a category
-                        </option>
-                        
-                    </select>
+                        </option> -->
 
-                    <img src="../assets/dropdown.svg">
-
+                    </datalist>
                 </div>
 
                 <p class ='my-size'>My size is <input type="number"> inches</p>

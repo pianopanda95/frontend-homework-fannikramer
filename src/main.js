@@ -13,23 +13,27 @@ const fetchObject = {
 
 const brandInput = document.querySelector('#brand');
 const dataListBrands = document.querySelector(`datalist#brands`);
-const categorySelect = document.querySelector('#category');
+const categoryInput = document.querySelector('#category');
+const dataListCategories = document.querySelector(`datalist#categories`);
+
 const size = document.querySelector('input[type="number"]');
 const calculateButton = document.querySelector('button');
 
 
-const displaySearchResults = (fetchedObj, attributeName, parent) => {
+const displaySearchResults = (fetchedObj, parent) => {
     const suggestion = document.createElement('option');
-    suggestion.setAttribute(attributeName, fetchedObj.id);
+    suggestion.setAttribute('data', fetchedObj.id);
     suggestion.textContent = fetchedObj.name;
+
     parent.appendChild(suggestion);
 }
 
 const clearCategories = () => {
-    if (categorySelect.children.length > 1) {
-        const categoryNodes = Array.from(categorySelect.children);
-        categoryNodes.shift();
-        categoryNodes.forEach(node => node.remove());
+    const categoryNodes = dataListCategories.children;
+    if (categoryNodes.length > 0) {
+        console.log('in if', categoryNodes)
+        Array.from(categoryNodes).forEach(node => node.remove());
+        categoryInput.value = '';
     }
 }
 
@@ -41,21 +45,21 @@ brandInput.addEventListener('input', () => {
         .then(response => response.json())
         .then(data => {
             dataListBrands.innerHTML = '';
-            data.brands.map(brand => displaySearchResults(brand, 'data', dataListBrands));
+            data.brands.map(brand => displaySearchResults(brand, dataListBrands));
         })
         .catch(error => console.log(error));
 });
 
 
-categorySelect.addEventListener('focus', () => {
+categoryInput.addEventListener('focus', () => {
 
     let selectedBrandId = dataListBrands.firstChild.getAttribute('data');
 
-    if (categorySelect.children.length <= 1) {
+    if (dataListCategories.children.length === 0) {
         fetch(`https://size-calculator-api.sspinc.io/categories?brand_id=${selectedBrandId}`, fetchObject)
             .then(response => response.json())
             .then(data => data.categories.map(category =>
-                        displaySearchResults(category, 'value', categorySelect)))
+                        displaySearchResults(category, dataListCategories)))
             .catch(error => console.log(error));
     }
 });
@@ -67,10 +71,13 @@ const createResultPage = result =>{
     fieldsetNodes.forEach(node => node.remove());
 
     const firstLine = document.createElement('p');
+    firstLine.classList.add('result-first-line');
     firstLine.textContent = 'Your size is';
 
     const resultLine = document.createElement('p');
     resultLine.classList.add('result');
+    if (/^(No size found)/.test(result))
+        resultLine.classList.add('no-size');
     resultLine.textContent = result;
 
     const okButton = document.createElement('button');

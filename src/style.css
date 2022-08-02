@@ -69,6 +69,10 @@ input:-ms-input-placeholder {
     opacity: 1;
 }
 
+input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
 input:focus {
     background-color: mintcream;
 }

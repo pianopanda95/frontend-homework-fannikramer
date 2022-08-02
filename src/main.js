@@ -88,9 +88,12 @@ const createResultPage = result =>{
     fieldset.appendChild(okButton);
 }
 calculateButton.addEventListener('click', (e) => {
-    e.preventDefault(); //temporary
-    let selectedBrandId = dataListBrands.firstChild.getAttribute('data');
-    const selectedCategoryId = document.querySelector('#category').value;
+    e.preventDefault();
+
+    const selectedBrandId = dataListBrands.firstChild.getAttribute('data');
+    const selectedCategoryId = Array.from(dataListCategories.children)
+                    .find(opt => opt.textContent === categoryInput.value)
+                    .getAttribute('data');
 
     fetch(`https://size-calculator-api.sspinc.io/sizes?brand_id=${selectedBrandId}&category_id=${selectedCategoryId}&measurement=${size.value}`, fetchObject)
     .then(response => response.json())

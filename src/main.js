@@ -31,7 +31,6 @@ const displaySearchResults = (fetchedObj, parent) => {
 const clearCategories = () => {
     const categoryNodes = dataListCategories.children;
     if (categoryNodes.length > 0) {
-        console.log('in if', categoryNodes)
         Array.from(categoryNodes).forEach(node => node.remove());
         categoryInput.value = '';
     }
